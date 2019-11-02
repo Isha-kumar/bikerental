@@ -30,7 +30,8 @@ class rent : public customer // inhereted class from customer class
 	cout<<"enter 3 for exit";
 	cin>>s;
 	switch(s){
-	case 1:
+	case 1:{
+	           		
 	       cout << "\t\t\t\tPlease Enter your Name: "; //taking data from the user
            cin >> customername;
            cout<<endl;
@@ -88,16 +89,30 @@ class rent : public customer // inhereted class from customer class
                   cout<<"Invaild Car Model. Please try again!"<<endl;
                }
                } while(bmodel !="A" && bmodel !="B" &&  bmodel !="C" );
-               cout<<"--------------------------------------------------------------------------"<<endl;
-               cout << "Please provide following information: "<<endl; 
-	//getting data from user related to rental service
-               cout<<"Please select a bike No. : ";
-               cin >> bnumber;
-               cout<<"Number of days you wish to rent the bike : ";
-               cin >> days;
-               cout<<endl;
+              fun();
+           	   break;
+           	   
+         }
+	case 2:{
+            fstream detail;
+		            detail.open("det.txt",ios::in);
+		          
+		     char str[3000];
 
-           	  void calculate(){
+                    while(detail) {
+                       detail.getline(str, 3000);
+                       if(detail) cout << str << endl;
+                       }
+                     detail.close();
+                 
+	break;	
+	}   
+	case 3:
+	       break;           
+}
+}
+
+  void calculate(){
 				  sleep(1);
 		        system ("CLS");
 		        cout<<"Calculating rent. Please wait......"<<endl;
@@ -109,7 +124,29 @@ class rent : public customer // inhereted class from customer class
                 if(bmodel == "C" ||bmodel=="c")
                 rentfee=days*75;
                }
-               
+             
+             
+              void fun()
+              { 
+			   fstream detail;
+				    detail.open("det.txt",ios::in|ios::out|ios::app);
+			
+			    cout<<"--------------------------------------------------------------------------"<<endl;
+               cout << "Please provide following information: "<<endl; 
+	//getting data from user related to rental service
+               cout<<"Please select a bike No. : ";
+               cin >> bnumber;
+               cout<<"Number of days you wish to rent the bike : ";
+               cin >> days;
+               cout<<endl;
+               calculate();
+               showrent();
+            
+			   detail<<bnumber<<" "<<days;	
+					
+				detail.close();
+			}
+             
              void showrent(){
                      cout << "\n\t\t                       bike Rental - Customer Invoice                  "<<endl;
                      cout << "\t\t	///////////////////////////////////////////////////////////"<<endl;
@@ -136,21 +173,7 @@ class rent : public customer // inhereted class from customer class
                     system("PAUSE");
     
                     system ("CLS");
-                    
-	                fstream detail;
-		            detail.open("det.txt",ios::in);
-		            detail.close();
-		            detail.open("det.txt",ios::out|ios::app);
-		               while(detail){
-		   	            detail.write((char*)&customername,sizeof(customername));
-		   	            detail.write((char*)&bmodel,sizeof(bmodel));
-		            	detail.write((char*)&bnumber,sizeof(bnumber));
-		             	detail.write((char*)&days,sizeof(days));
-		   	            detail.write((char*)&rentfee,sizeof(rentfee));
-		                }
-		             detail.close();
-		
-		   
+	               
                     ifstream inf("thanks.txt");
 
   
@@ -163,23 +186,7 @@ class rent : public customer // inhereted class from customer class
                      inf.close();
                  }
 	
-	break;
-    case 2:
-    	
-	       ifstream detail("det.txt");
-		     char str[300];
 
-                    while(detail) {
-                       detail.getline(str, 300);
-                       if(detail) cout << str << endl;
-                       }
-                     detail.close();
-                 
-	break;	   
-	case 3:
-	       system.exit();	           
-}
-}
 };
 
 
