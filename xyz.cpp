@@ -6,6 +6,7 @@
 #include <dos.h>
 #include <iomanip> 
 using namespace std;
+int login();
 class customer // customer class
 {
 	private:
@@ -20,18 +21,7 @@ class rent : public customer // inhereted class from customer class
 {
 	public:
 	int days=0,rentfee=0; // additional int vatiables defined
-	void data()
-	{
-		int login();
-		int s;
-	login();
-	cout<<"enter 1 for taking a bike in rent"<<endl;
-	cout<<"enter 2 for knowing the details of rented bike"<<endl;
-	cout<<"enter 3 for exit";
-	cin>>s;
-	switch(s){
-	case 1:{
-	           		
+	    void data(){	
 	       cout << "\t\t\t\tPlease Enter your Name: "; //taking data from the user
            cin >> customername;
            cout<<endl;
@@ -90,12 +80,11 @@ class rent : public customer // inhereted class from customer class
                }
                } while(bmodel !="A" && bmodel !="B" &&  bmodel !="C" );
               fun();
-           	   break;
-           	   
-         }
-	case 2:{
+           	}
+
+         void data1(){
             fstream detail;
-		            detail.open("det.txt",ios::in);
+		      detail.open("det.txt",ios::in);
 		          
 		     char str[3000];
 
@@ -104,13 +93,9 @@ class rent : public customer // inhereted class from customer class
                        if(detail) cout << str << endl;
                        }
                      detail.close();
-                 
-	break;	
-	}   
-	case 3:
-	       break;           
-}
-}
+				}   
+	
+
 
   void calculate(){
 				  sleep(1);
@@ -222,15 +207,36 @@ class welcome //welcome class
 
 int main()
 {
+	
+
 welcome obj1; //object created for welcome class
 obj1.welcum(); //welcum function is called
-rent obj2; 
+login();
+rent obj2;
+	int s;
+	
+	while(1){
+     cout<<"enter 1 for taking a bike in rent"<<endl;
+	cout<<"enter 2 for knowing the details of rented bike"<<endl;
+	cout<<"enter 3 for exit";
+	cin>>s;
+	switch(s){
+		case 1:{
+             obj2.data();			
+			break;
+		}
+		case 2: {
+			obj2.data1();
+			break;
+		}
+		case 3: {
+			exit(0);
+		}
+    }
+	} 
 //object created for rent class and further member functions are called
-obj2.data();
-obj2.calculate();
-obj2.showrent();
 
-return 0; //end of the program
+ //end of the program
 }
 
 int login(){
