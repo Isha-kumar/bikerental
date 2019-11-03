@@ -1,7 +1,16 @@
+A -  honda activa model
+B - royal enfield bullet
+c - hero splender
 
 
-isha A 3129 7 
-vani B 2145 8
-bhuvan B 4567 30
-yash B 6785 9 
-adarsh C 4532 9 
+customername  model  bnumber  days for rent
+---------------------------------------------------------------------------------------------
+*******************************************
+
+isha    A  3129  7 
+vani   B  2145  8
+bhuvan  B 4567 30
+yash   B  6785  9 
+adarsh   C  4532  9 
+akriti   A  5678  10 
+aashi C 7654 12 
