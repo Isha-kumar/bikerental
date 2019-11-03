@@ -32,8 +32,8 @@ class rent : public customer // inhereted class from customer class
            do
            {
               cout <<"\t\t\t\tPlease Select a bike"<<endl; //giving user a choice to select among three different models
-              cout<<"\t\t\t\tEnter 'A' for honda 2011."<<endl;
-              cout<<"\t\t\t\tEnter 'B' for yamaha 2015."<<endl;
+              cout<<"\t\t\t\tEnter 'A' for honda activa 2011."<<endl;
+              cout<<"\t\t\t\tEnter 'B' for royal enfield bullet 2015."<<endl;
               cout<<"\t\t\t\tEnter 'C' for hero splender 2017."<<endl;
               cout<<endl;
               cout<<"\t\t\t\tChoose a bike from the above options: ";
@@ -44,7 +44,7 @@ class rent : public customer // inhereted class from customer class
               {
  	            system("CLS");
  
-        		cout<<"You have choosed honda model 2011"<<endl;
+        		cout<<"You have choosed honda activa model 2011"<<endl;
 		        ifstream inA("A.txt"); //displaying details of model A
                 char str[200];
                 while(inA) {
@@ -57,7 +57,7 @@ class rent : public customer // inhereted class from customer class
               {
                	system("CLS");
   
-        		cout<<"You have choosed yamaha model 2015"<<endl;
+        		cout<<"You have choosed royal enfield bullet model 2015"<<endl;
 		        ifstream inB("B.txt"); //displaying details of model B
                 char str[200];
                 while(inB) {
